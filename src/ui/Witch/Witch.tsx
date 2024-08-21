@@ -7,8 +7,8 @@ interface Props {
 }
 
 export const Witch: FC<Props> = ({ witchClick }) => {
-  return (
-    <Image
+  return (    
+    <Image    
       onClick={witchClick}
       boxSize="100%"
       objectFit="cover"

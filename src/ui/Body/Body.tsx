@@ -58,10 +58,7 @@ export const Body = () => {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] === gameSequence[i]) count++;
     }
-    if (count === 7) {
-      resultWinGame();
-      return;
-    }
+    
 
     const newAttempts: PotionAttempt = { potions: potions, value: count };
     attempts.push(newAttempts);
@@ -71,6 +68,9 @@ export const Body = () => {
     }
     if (potionAttempts.length % 5 === 0) {
       updateTalkInInGame();
+    }
+    if (count === 7) {
+      resultWinGame();      
     }
   };
   //Разговоры ведьмы во время игры
@@ -120,7 +120,9 @@ export const Body = () => {
     setShovedMessage("");
     message.current = getMessage(messageTypes.startGame);
     setGameSequence(sequenceArr);
-    setMainType(MainTab.gameTab);
+    setMainType(MainTab.gameTab);    
+    console.log(`Победная комбинация:
+    ${sequenceArr.map((item) => arrSorted[item].potion.color).join("-")}`)   
   };
   //Говорить с ведьмой в начальном меню
   const handleTalk = () => {
@@ -195,10 +197,10 @@ export const Body = () => {
         w="100%"
         h="100%"
         justifyContent="space-between"
-        gridTemplateRows={"1fr"}
-        gridTemplateColumns={"max(33%, 120px) 1fr"}
-        templateAreas={`
-          "witch main"`}
+        gridTemplateRows={["50px 1fr","1fr"]}
+        gridTemplateColumns={["1fr","max(33%, 120px) 1fr"]}
+        templateAreas={["witch", "main","witch main"]
+          }
       >
         <Witch witchClick={handleWitchClick} />
         <Mainfield

@@ -1,5 +1,6 @@
 export const imgSrc = {
   witch: "https://i.ibb.co/Vqdhw7n/witch.png",
+  witchLittle: "https://i.ibb.co/fdGH4Kr/witch-little.png",
   black: "https://i.ibb.co/MCQr4qT/black.png",
   yellow: "https://i.ibb.co/25QKSWn/yellow.png",
   green: "https://i.ibb.co/CP8f1FR/green.png",
