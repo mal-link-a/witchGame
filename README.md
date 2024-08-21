@@ -1,3 +1,6 @@
+Адаптива под телефоны-планшеты не будет.
+Ииии проектик долго загружает картинки после загрузки страницы.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
