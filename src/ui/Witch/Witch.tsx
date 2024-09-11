@@ -1,5 +1,5 @@
-import { Image } from "@chakra-ui/react";
-import { FC } from "react";
+import { Image, Spinner } from "@chakra-ui/react";
+import { FC, useEffect, useState } from "react";
 import { imgSrc } from "../../lib/img";
 
 interface Props {
@@ -7,8 +7,19 @@ interface Props {
 }
 
 export const Witch: FC<Props> = ({ witchClick }) => {
-  return (    
-    <Image    
+  const [url, setUrl] = useState("");
+  useEffect(() => {
+    fetch(imgSrc.witch)
+      .then((response) => response.blob())
+      .then((image) => {
+        setUrl(URL.createObjectURL(image));
+      });
+  }, []);
+  if (!url) {
+    return <Spinner margin="auto" size="xl" color="white" />;
+  }
+  return (
+    <Image
       onClick={witchClick}
       boxSize="100%"
       objectFit="cover"
